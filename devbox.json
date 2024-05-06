@@ -20,6 +20,7 @@
       "cargo fetch"
     ],
     "scripts": {
+      "test-config": "rustup toolchain install nightly",
       "test-cov": "cargo +nightly llvm-cov --show-missing-lines --branch",
       "start": "cargo run",
       "build-docs": "cargo doc"
