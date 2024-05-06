@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  runs-on: ubuntu-latest
   ci:
+    runs-on: ubuntu-latest
     steps:
       - name: Install devbox
         uses: jetify-com/devbox-install-action@v0.8.0
