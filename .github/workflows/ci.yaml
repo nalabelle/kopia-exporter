@@ -1,0 +1,23 @@
+name: "CI"
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref  }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    steps:
+      - name: Install devbox
+        uses: jetify-com/devbox-install-action@v0.8.0
+
+      - name: Run tests
+        run: devbox run test-cov
