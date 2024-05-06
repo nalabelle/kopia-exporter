@@ -3,7 +3,8 @@
   "packages": [
     "rustup@latest",
     "libiconv@latest",
-    "convco@latest"
+    "convco@latest",
+    "cargo-llvm-cov@latest"
   ],
   "shell": {
     "init_hook": [
@@ -13,12 +14,14 @@
       "export RUSTUP_HOME=$rustupHomeDir",
       "export LIBRARY_PATH=$LIBRARY_PATH:\"$projectDir/nix/profile/default/lib\"",
       "export RUST_BACKTRACE=1",
-      "rustup default stable",
+      "export LLVM_PROFILE_FILE=\"target/coverage/%p-%m.profraw\"",
+      "export RUSTFLAGS=\"-C instrument-coverage\"",
+      "rustup show",
       "cargo fetch"
     ],
     "scripts": {
-      "test":       "cargo test -- --show-output",
-      "start":      "cargo run",
+      "test-cov": "cargo +nightly llvm-cov --show-missing-lines --branch",
+      "start": "cargo run",
       "build-docs": "cargo doc"
     }
   }
