@@ -1,0 +1,130 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "convco@latest": {
+      "last_modified": "2024-04-19T17:36:04-04:00",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#convco",
+      "source": "devbox-search",
+      "version": "0.5.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zil99v9m0psnidi9ki9xpjbikmc19bk7-convco-0.5.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zil99v9m0psnidi9ki9xpjbikmc19bk7-convco-0.5.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jy8kzfa34r8jxznamlmgdlaspv9qpcij-convco-0.5.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jy8kzfa34r8jxznamlmgdlaspv9qpcij-convco-0.5.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mgyw5sn4zf7mxw1im301yb6fyymbf5sp-convco-0.5.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mgyw5sn4zf7mxw1im301yb6fyymbf5sp-convco-0.5.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xgq0flcj5834s1r3dgi6nk1c17pkdsck-convco-0.5.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/xgq0flcj5834s1r3dgi6nk1c17pkdsck-convco-0.5.1"
+        }
+      }
+    },
+    "libiconv@latest": {
+      "last_modified": "2024-04-19T17:36:04-04:00",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#libiconv",
+      "source": "devbox-search",
+      "version": "2.39",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s1wwib4qjxqmpdkpafsraygh8mm2r42a-glibc-iconv-2.39",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/s1wwib4qjxqmpdkpafsraygh8mm2r42a-glibc-iconv-2.39"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6rghxdycggqf7pkjd90hhsb0qyv4giva-glibc-iconv-2.39",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6rghxdycggqf7pkjd90hhsb0qyv4giva-glibc-iconv-2.39"
+        }
+      }
+    },
+    "rustup@latest": {
+      "last_modified": "2024-04-19T17:36:04-04:00",
+      "plugin_version": "0.0.1",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#rustup",
+      "source": "devbox-search",
+      "version": "1.26.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/cyvyapv4ypksdxy6ccgl6nla5kdmzib0-rustup-1.26.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/cyvyapv4ypksdxy6ccgl6nla5kdmzib0-rustup-1.26.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k0i5323fwlc6yxiqqd6fyi6syvbwvw6r-rustup-1.26.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k0i5323fwlc6yxiqqd6fyi6syvbwvw6r-rustup-1.26.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rgx9ssx5ai30vncw2a5wxcr8pbmhdy39-rustup-1.26.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rgx9ssx5ai30vncw2a5wxcr8pbmhdy39-rustup-1.26.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/czkc2swvgjv185rmi22j73159ifil4sy-rustup-1.26.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/czkc2swvgjv185rmi22j73159ifil4sy-rustup-1.26.0"
+        }
+      }
+    }
+  }
+}
