@@ -17,10 +17,34 @@ pub struct Stats {
 pub type Backups = HashMap<Source, Stats>;
 
 pub trait BackupsCollect {
+    fn from_kopia(kopia_backups: &mut kopia::Backups) -> Backups;
     fn collect<W: Write>(&self, writer: &mut W);
 }
 
 impl BackupsCollect for Backups {
+    fn from_kopia(kopia_backups: &mut kopia::Backups) -> Backups {
+        let mut latest: Backups = Backups::new();
+        for kopia_backup in kopia_backups.iter_mut() {
+            let source = kopia_backup.source.take();
+            let details = Stats {
+                end_time: kopia_backup.end_time,
+                error_count: kopia_backup.stats.error_count,
+                total_size: kopia_backup.stats.total_size,
+            };
+            match latest.get(&source) {
+                Some(stored_details) => {
+                    if &details > stored_details {
+                        latest.insert(source, details);
+                    }
+                },
+                None => {
+                    latest.insert(source, details);
+                }
+            }
+        }
+        latest
+    }
+
     /// Collects and prints Backups stats in prom metrics format
     fn collect<W: Write>(&self, writer: &mut W) {
         for (source, details) in self.iter() {
