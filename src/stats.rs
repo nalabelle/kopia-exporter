@@ -21,6 +21,11 @@ pub trait BackupsCollect {
     fn collect<W: Write>(&self, writer: &mut W);
 }
 
+// https://prometheus.io/docs/instrumenting/exposition_formats/#comments-help-text-and-type-information
+fn prom_escape(string: &String) -> String {
+    string.replace(r#"\"#, r#"\\"#)
+}
+
 impl BackupsCollect for Backups {
     fn from_kopia(kopia_backups: &mut kopia::Backups) -> Backups {
         let mut latest: Backups = Backups::new();
@@ -48,7 +53,10 @@ impl BackupsCollect for Backups {
     /// Collects and prints Backups stats in prom metrics format
     fn collect<W: Write>(&self, writer: &mut W) {
         for (source, details) in self.iter() {
-            let tags = format!("host=\"{}\",user=\"{}\",path=\"{}\"", source.host, source.user, source.path);
+            let host = prom_escape(&source.host);
+            let user = prom_escape(&source.user);
+            let path = prom_escape(&source.path);
+            let tags = format!("host=\"{}\",user=\"{}\",path=\"{}\"", host, user, path);
             let end_time_timestamp = details.end_time.timestamp();
             writeln!(writer, "kopia_backup_run{{{}}} {}", tags, end_time_timestamp).unwrap();
             writeln!(writer, "kopia_backup_size{{{}}} {}", tags, details.total_size).unwrap();
@@ -67,7 +75,7 @@ mod tests {
         let source = Source {
             user: String::from("testUser"),
             host: String::from("testHost"),
-            path: String::from("testPath"),
+            path: String::from(r#"C:\testPath"#),
         };
         let expected_timestamp = 1431648000;
         let end_time = DateTime::from_timestamp(expected_timestamp, 0).unwrap();
@@ -83,9 +91,9 @@ mod tests {
         buffer.rewind().unwrap();
         let lines = buffer.lines().map(|l| l.unwrap());
         let expected_lines = [
-            format!(r#"kopia_backup_run{{host="testHost",user="testUser",path="testPath"}} {}"#, expected_timestamp),
-            format!(r#"kopia_backup_size{{host="testHost",user="testUser",path="testPath"}} {}"#, 11),
-            format!(r#"kopia_backup_errors{{host="testHost",user="testUser",path="testPath"}} {}"#, 10),
+            format!(r#"kopia_backup_run{{host="testHost",user="testUser",path="C:\\testPath"}} {}"#, expected_timestamp),
+            format!(r#"kopia_backup_size{{host="testHost",user="testUser",path="C:\\testPath"}} {}"#, 11),
+            format!(r#"kopia_backup_errors{{host="testHost",user="testUser",path="C:\\testPath"}} {}"#, 10),
         ];
         for (pos, line) in lines.enumerate() {
             assert_eq!(line, expected_lines[pos]);
