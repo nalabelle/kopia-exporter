@@ -1,10 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/0.10.3/.schema/devbox.schema.json",
   "packages": [
-    "rustup@latest",
+    "rustup@1.27.1",
     "libiconv@latest",
-    "convco@latest",
-    "cargo-llvm-cov@latest"
+    "convco@0.6.1",
+    "cargo-llvm-cov@0.6.14"
   ],
   "shell": {
     "init_hook": [
