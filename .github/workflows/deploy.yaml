@@ -33,7 +33,6 @@ jobs:
           RUSTTARGET: x86_64-unknown-linux-musl
           ARCHIVE_TYPES: tar.xz tar.gz
           UPLOAD_MODE: none
-        if: ${{ steps.tag_version.outputs.new_tag != null }}
 
       - name: Compile
         id: compile_windows
@@ -42,7 +41,6 @@ jobs:
           RUSTTARGET: x86_64-pc-windows-gnu
           ARCHIVE_TYPES: zip
           UPLOAD_MODE: none
-        if: ${{ steps.tag_version.outputs.new_tag != null }}
 
       - name: Create Release
         uses: ncipollo/release-action@cdcc88a9acf3ca41c16c37bb7d21b9ad48560d87 # v1.15.0
@@ -50,8 +48,8 @@ jobs:
           allowUpdates: true
           artifactErrorsFailBuild: true
           makeLatest: true
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: ${{ steps.tag_version.outputs.new_tag }}
+          tag: ${{ steps.tag_version.outputs.new_tag || steps.tag_version.outputs.previous_tag }}
+          name: ${{ steps.tag_version.outputs.new_tag || steps.tag_version.outputs.previous_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "\
@@ -59,5 +57,4 @@ jobs:
             ${{ steps.compile_linux.outputs.BUILT_CHECKSUM }},\
             ${{ steps.compile_windows.outputs.BUILT_ARCHIVE }},\
             ${{ steps.compile_windows.outputs.BUILT_CHECKSUM }}"
-        if: ${{ steps.tag_version.outputs.new_tag != null }}
 
