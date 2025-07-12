@@ -3,7 +3,7 @@
   "packages": [
     "rustup@1.28.2",
     "libiconv@latest",
-    "cargo-llvm-cov@0.6.14",
+    "cargo-llvm-cov@0.6.17",
     "shellcheck@0.10.0",
     "pre-commit@4.2.0"
   ],
