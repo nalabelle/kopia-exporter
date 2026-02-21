@@ -1,51 +1,51 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "cargo-llvm-cov@0.8.1": {
-      "last_modified": "2026-01-27T15:18:14Z",
-      "resolved": "github:NixOS/nixpkgs/afce96367b2e37fc29afb5543573cd49db3357b7#cargo-llvm-cov",
+    "cargo-llvm-cov@0.8.3": {
+      "last_modified": "2026-02-08T07:51:33Z",
+      "resolved": "github:NixOS/nixpkgs/fef9403a3e4d31b0a23f0bacebbec52c248fbb51#cargo-llvm-cov",
       "source": "devbox-search",
-      "version": "0.8.1",
+      "version": "0.8.3",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7frfknj5qf10i9cpv0a9mds57hvfxkqi-cargo-llvm-cov-0.8.1",
+              "path": "/nix/store/7jlcw1qg1xajv5z3zrlfgy441sp7vggs-cargo-llvm-cov-0.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/7frfknj5qf10i9cpv0a9mds57hvfxkqi-cargo-llvm-cov-0.8.1"
+          "store_path": "/nix/store/7jlcw1qg1xajv5z3zrlfgy441sp7vggs-cargo-llvm-cov-0.8.3"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/f0nmca75idfm62cn0fvm9h15zkibxnzb-cargo-llvm-cov-0.8.1",
+              "path": "/nix/store/70n8h766rb9razsra7vwif820a2m3cj9-cargo-llvm-cov-0.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/f0nmca75idfm62cn0fvm9h15zkibxnzb-cargo-llvm-cov-0.8.1"
+          "store_path": "/nix/store/70n8h766rb9razsra7vwif820a2m3cj9-cargo-llvm-cov-0.8.3"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/86g1j4w8icws77b2340csly671i9fxf8-cargo-llvm-cov-0.8.1",
+              "path": "/nix/store/va397q7iyf04q5q772j9rf94d6prsfvd-cargo-llvm-cov-0.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/86g1j4w8icws77b2340csly671i9fxf8-cargo-llvm-cov-0.8.1"
+          "store_path": "/nix/store/va397q7iyf04q5q772j9rf94d6prsfvd-cargo-llvm-cov-0.8.3"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/33h1j6s89qvs16hsymd10xilqynpk9fm-cargo-llvm-cov-0.8.1",
+              "path": "/nix/store/2ig7nl37qvymf1jvfm9qchxjkca16h4s-cargo-llvm-cov-0.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/33h1j6s89qvs16hsymd10xilqynpk9fm-cargo-llvm-cov-0.8.1"
+          "store_path": "/nix/store/2ig7nl37qvymf1jvfm9qchxjkca16h4s-cargo-llvm-cov-0.8.3"
         }
       }
     },
